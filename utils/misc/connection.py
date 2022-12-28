@@ -27,3 +27,18 @@ class Database:
                             )
                         )
         session.commit()
+    
+
+    def get_user(self, user_id) -> Users:
+        """Some docs"""
+        response = session.query(Users).filter(Users.user_id == user_id).first()
+        return response
+
+    
+    def update_status(self, user_id):
+        """Some docs"""
+        session.execute(
+                update(Users).filter(Users.user_id == user_id).
+                values(status = 'payed')
+        )
+        session.commit()

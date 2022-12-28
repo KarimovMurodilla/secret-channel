@@ -10,9 +10,9 @@ def pay_and_question():
     return menu
 
 
-def show_links():
+def show_links(payment_url: str):
     menu = types.InlineKeyboardMarkup(row_width=1)
-    btn1 = types.InlineKeyboardButton(text="Оплатить", url="https://yookassa.ru")
+    btn1 = types.InlineKeyboardButton(text="Оплатить", url=payment_url)
     btn2 = types.InlineKeyboardButton(text="Вступить на канал", url="https://t.me/+X-aBl_FfpS5mNTcy")
     menu.add(btn1, btn2)
 

@@ -11,9 +11,14 @@ from keyboards.default import keyboard_buttons
 @dp.message_handler(CommandStart(), state='*')
 async def bot_start(message: types.Message, state: FSMContext):
     await state.finish()
+    user = db.get_user(message.from_user.id)
 
-    await message.answer("Привет! Введите своё имя")
-    await Reg.step1.set()
+    if not user:
+        await message.answer("Привет! Введите своё имя")
+        await Reg.step1.set()
+    
+    else:
+        await message.answer(f"Привет {user.name}!")
 
 
 @dp.message_handler(state=Reg.step1)
