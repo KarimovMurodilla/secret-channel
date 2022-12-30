@@ -52,7 +52,7 @@ async def get_contact(message: types.Message, state: FSMContext):
 
     await message.answer(
         "Зарегистрировал!\n"
-        "Прежде чем купить подписку на канал, рекомендую ознакомиться с правилами и безопасностью :)",
+        "Прежде чем перейти в канал, рекомендую ознакомиться с правилами и безопасностью :)",
             reply_markup=types.ReplyKeyboardRemove()
     )
 
@@ -73,11 +73,8 @@ async def get_contact(message: types.Message, state: FSMContext):
     )
 
     await message.answer(
-        "Не забудьте подписаться на основной канал: https://t.me/SharkSail\n\n"
-
-        "Закрытый канал:\n"
-        "https://telegra.ph/Zakrytyj-kanal-01-08"
-    )
-    await message.answer("Теперь можно перейти к оплате или задать вопрос", reply_markup=inline_buttons.pay_and_question())
+        "Не забудьте подписаться на основной канал: https://t.me/SharkSail\n\n", 
+            reply_markup=inline_buttons.pay_and_question()
+        )
 
     await state.finish()
