@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from loader import dp, db
+from loader import dp, db, gs
 from states.reg import Reg
 from keyboards.inline import inline_buttons
 from keyboards.default import keyboard_buttons
@@ -49,6 +49,11 @@ async def get_contact(message: types.Message, state: FSMContext):
         username = message.from_user.username
 
     db.reg_user(user_id, username, name, insta, contact)
+    
+    row = db.get_row_count()
+    line = row + 1
+    gs.update_columns(line, name, insta, contact)
+
 
     await message.answer(
         "Зарегистрировал!\n"

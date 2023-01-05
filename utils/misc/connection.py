@@ -42,3 +42,8 @@ class Database:
                 values(status = 'payed')
         )
         session.commit()
+    
+
+    def get_row_count(self):
+        response = session.query(Users).count()
+        return response
