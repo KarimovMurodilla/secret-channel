@@ -56,8 +56,7 @@ async def get_contact(message: types.Message, state: FSMContext):
 
 
     await message.answer(
-        "Зарегистрировал!\n"
-        "Прежде чем перейти в канал, рекомендую ознакомиться с правилами и безопасностью :)",
+        "Зарегестрировал! Теперь можешь подписаться на канал: https://t.me/SharkSail",
             reply_markup=types.ReplyKeyboardRemove()
     )
 
