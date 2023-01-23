@@ -21,7 +21,7 @@ class Gsheets:
 
     def update_columns(self, line, name, insta, contact):
         # Opening
-        sh = self.gs.open_by_url('https://docs.google.com/spreadsheets/d/1dCiRuH5VD29Ddx11v2dJTxUUnqFY_rNIVQxuzIZic2k')
+        sh = self.gs.open_by_url('https://docs.google.com/spreadsheets/d/tgfdfg7')
         self.wks = sh.worksheet("Участники")
 
 
@@ -34,10 +34,3 @@ class Gsheets:
         sh = self.gs.open(self.sheet_name)
         return "https://docs.google.com/spreadsheets/d/%s" % sh.id
     
-
-    def add_members(self, line, name, username, contact):
-        sh = self.gs.open_by_url('https://docs.google.com/spreadsheets/d/1dCiRuH5VD29Ddx11v2dJTxUUnqFY_rNIVQxuzIZic2k')
-        wks = sh.worksheet("Участники")
-        wks.update(f'A{line}', name)
-        wks.update(f'B{line}', username)
-        wks.update(f'C{line}', contact)
