@@ -21,7 +21,7 @@ class Gsheets:
 
     def update_columns(self, line, name, insta, contact):
         # Opening
-        sh = self.gs.open_by_url('https://docs.google.com/spreadsheets/d/tgfdfg7')
+        sh = self.gs.open_by_url('https://docs.google.com/spreadsheets/d/1dCiRuH5VD29Ddx11v2dJTxUUnqFY_rNIVQxuzIZic2k')
         self.wks = sh.worksheet("Участники")
 
 
